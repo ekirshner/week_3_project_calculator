@@ -26,7 +26,6 @@ let allButtons = document.querySelectorAll("button")
 
 // Here is my function
 
-let infoStr = '';
 let op1 = '';
 let op2 = '';
 let operator = '';
@@ -38,7 +37,6 @@ allButtons.forEach(function(button){
     button.addEventListener("click", function() {
         if(button.innerHTML === ' C '){
             textBox.innerHTML = 0;
-            infoStr = '';
             op1 = '';
             op2 = '';
             operator = '';
@@ -46,7 +44,6 @@ allButtons.forEach(function(button){
             if (operator.length > 0) {
                 // if its equal sign, run ...
                 textBox.innerHTML = equalsFunc();
-                infoStr = results;
                 textBox.innerHTML = results;
                 op1 = results;
                 op2 = '';
@@ -62,11 +59,9 @@ allButtons.forEach(function(button){
                 op2 +=  button.innerHTML
                 textBox.innerHTML = op1 + operator + op2;
                 console.log(op2);
-                infoStr += button.innerHTML;
             }else {
                 op1 += button.innerHTML;
-                infoStr += button.innerHTML;
-                textBox.innerHTML = infoStr;
+                textBox.innerHTML = op1;
                 console.log(op1);
             }
         }
